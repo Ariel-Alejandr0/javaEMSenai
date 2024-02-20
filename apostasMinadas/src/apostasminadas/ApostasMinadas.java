@@ -2,7 +2,7 @@ package apostasminadas;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.Arrays;
 
 public class ApostasMinadas {
 
@@ -31,13 +31,15 @@ public class ApostasMinadas {
             ArrayList<Integer> linha = new ArrayList<Integer>();
             
             for (int j = 0; j < dimensaoTabuleiro; j++) {
-                int mina = (int) (Math.round(Math.random()));
-                if (mina == 1 && coordenadasMinadas[i][j]) {
-                    contaMinas++;
-                    linha.add(mina);
-                } else {
-                    linha.add(0);
+                int[] coordenadaAtual = {i, j};
+                int bomba = 0;
+                for (int z = 0; z < coordenadasMinadas.length; z++) {
+                    int[] coordenadaBomba = coordenadasMinadas[z];
+                    if(Arrays.toString(coordenadaBomba).equals(Arrays.toString(coordenadaAtual))){
+                        bomba = 1;
+                    }
                 }
+                linha.add(bomba);
             }
             tabuleiro.add(linha);
         }
@@ -52,18 +54,15 @@ public class ApostasMinadas {
         }
     }
     
-    // Geraodr de coordenadas
+    // Geração de coordenadas
     public static int[][] coordenadasMinadas(int qtdMinas, int ordemTabuleiro) {
         int[][] coordenadas = new int[qtdMinas][2]; //matriz tabuleiro
         
         for (int i = 0; i < qtdMinas; i++) {
             for (int j = 0; j < 2; j++) {
                 coordenadas[i][j] = (int)(Math.round(Math.random() * ordemTabuleiro));
-                System.out.println(coordenadas[i][j]);
             }
-            System.out.println();
         }
-        
         return coordenadas;
     }
 }
