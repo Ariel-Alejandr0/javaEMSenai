@@ -35,6 +35,7 @@ public class ApostasMinadas {
                 int bomba = 0;
                 for (int z = 0; z < coordenadasMinadas.length; z++) {
                     int[] coordenadaBomba = coordenadasMinadas[z];
+                    System.out.println("CA: " + Arrays.toString(coordenadaAtual) + ", CB: " + Arrays.toString(coordenadaBomba));
                     if(Arrays.toString(coordenadaBomba).equals(Arrays.toString(coordenadaAtual))){
                         bomba = 1;
                     }
@@ -57,11 +58,14 @@ public class ApostasMinadas {
     // Geração de coordenadas
     public static int[][] coordenadasMinadas(int qtdMinas, int ordemTabuleiro) {
         int[][] coordenadas = new int[qtdMinas][2]; //matriz tabuleiro
-        
-        for (int i = 0; i < qtdMinas; i++) {
-            for (int j = 0; j < 2; j++) {
-                coordenadas[i][j] = (int)(Math.round(Math.random() * ordemTabuleiro));
+        int[][] creatingCoordenadas = new int[qtdMinas][2];
+        for (int i = 0; i < qtdMinas; i++) {                
+            while(Arrays.equals(coordenadas[i], creatingCoordenadas[i])){
+                for (int j = 0; j < 2; j++) {
+                    creatingCoordenadas[i][j] = (int)(Math.round(Math.random() * ordemTabuleiro));
+                }
             }
+            coordenadas[i] = creatingCoordenadas[i];
         }
         return coordenadas;
     }
