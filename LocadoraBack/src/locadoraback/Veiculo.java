@@ -10,6 +10,16 @@ public class Veiculo {
     private boolean locado;
     private Date dataFabricacao;
 
+    
+    public Veiculo (int codVeiculo, String marcaVeiculo, String modeloVeiculo, String placaVeiculo, boolean locado, Date dataFabricacao){
+            this.codVeiculo     = codVeiculo;
+            this.marcaVeiculo   = marcaVeiculo;
+            this.modeloVeiculo  = modeloVeiculo;
+            this.placaVeiculo   = placaVeiculo;
+            this.locado         = locado;
+            this.dataFabricacao = dataFabricacao;
+   }
+    
     public boolean abastecerVeiculo (int qtdLitros, String tipoComb, float precoComb){
         return true;
     }    

@@ -1,10 +1,20 @@
 package locadoraback;
 
+import java.util.Date;
+
 public class Automovel extends Veiculo {
 
     private int potenciaHP;
     private int qtdPassageiros;
 
+    public Automovel (int potenciaHP, int qtdPassageiros, String marcaVeiculo, 
+                       String modeloVeiculo, String placaVeiculo, boolean locado, 
+                       Date dataFabricacao){
+        
+        super(potenciaHP, marcaVeiculo, modeloVeiculo, placaVeiculo, locado, dataFabricacao);
+        this.qtdPassageiros = qtdPassageiros;
+    }
+    
     @Override
     public boolean abastecerVeiculo (int qtdLitros, String tipoComb, float precoComb){
         float vlrAbastecimento = 0;
