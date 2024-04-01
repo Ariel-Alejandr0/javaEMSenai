@@ -1,5 +1,7 @@
 package locadoraback;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.Scanner;
 /*
 import java.text.SimpleDateFormat;
@@ -48,7 +50,7 @@ public class LocadoraBack {
         System.out.println(ve1.toString());    
     */
         System.out.println("Dados Caminhao");
-        Caminhao  c1 = new Caminhao();
+        Caminhao  c1 = new Caminhao(0, 0, 0, 0, "Ford", "F350", "ABC1234", false, new Date());
         c1.setCodVeiculo(2);
         c1.setMarcaVeiculo("Ford");
         c1.setModeloVeiculo("F350");
