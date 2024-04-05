@@ -49,13 +49,13 @@ public class LocadoraBack {
         System.out.println("Data Saida : " + dataSaida);
         System.out.println(ve1.toString());    
     */
+        Date dataAtual = new Date();
         System.out.println("Dados Caminhao");
-        Caminhao  c1 = new Caminhao(0, 0, 0, 0, "Ford", "F350", "ABC1234", false, new Date());
-        c1.setCodVeiculo(2);
-        c1.setMarcaVeiculo("Ford");
-        c1.setModeloVeiculo("F350");
-        c1.setPlacaVeiculo("ABC1234");
-        c1.setLocado(false);
+        Caminhao  c1 = new Caminhao(0, 0, 's', 0,
+                "Ford", "F350", "ABC1234", false, 
+                dataAtual);
+        
+
         
         c1.setPotenciaHP(450);
         c1.setQtdEixos(3);
@@ -64,15 +64,9 @@ public class LocadoraBack {
         
         System.out.println("--------------------------");
         System.out.println("Dados Automovel");        
-        Automovel a2 = new Automovel();
-        a2.setCodVeiculo(200);
-        a2.setMarcaVeiculo("Audi");
-        a2.setModeloVeiculo("TT");
-        a2.setPlacaVeiculo("FIM4567");
-        a2.setLocado(true);
+        Automovel a2 = new Automovel(250, 5, "Audi", "TT",
+                                    "FIM4567", true, dataAtual);
         
-        a2.setPotenciaHP(250);
-        a2.setQtdPassageiros(5);
         a2.imprimirDadosVeiculo();
         
         System.out.print("Informe a quantidade de Litros: ");
